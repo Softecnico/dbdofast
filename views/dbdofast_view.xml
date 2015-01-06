@@ -1,19 +1,49 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <openerp>
 	<data>
-		<record model="ir.ui.view" id="view_student_form">
-			<field name="nombre">
-				student.det.student.view
-				</field>
-			<field name="model">student.det</field>
+		<record id="dbdofast_tree" model="ir.ui.view"> // registro nuevo dentro para la vista, el modelo siempre es el mismo para vistas
+			<field name="name">dbdofast.tree</field>  // estes es el nombre de la vista en cuestión
+			<field name="model">dbdofast.model</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Listados">
+					<field name="nota"/>
+					<field name="fecha"/>
+					<field name="state"/>
+				</tree>
+			</field>
+		</record>
+		<record id="dbdofast_form" model="ir.ui.view"> // registro nuevo dentro para la vista, el modelo siempre es el mismo para vistas
+			<field name="name">dbdofast.form</field>  // estes es el nombre de la vista en cuestión
+			<field name="model">dbdofast.model</field>
 			<field name="type">form</field>
 			<field name="arch" type="xml">
-				<form string="Destalles del Estudiante">
-					<field name="nombre" select="1"/>
-					<field name="fechadenacimiento" />
+				<form string="Destalles" version="8.0">
+					<header>
+						<field name="state" widget="statusbar" />
+					</header>
+					<sheet>
+						<group> <!-- colspan/col -->
+							<field name="titulo" />
+							<field name="nota" />
+							<field name="fecha" />
+							<field name="active" />
+						</group>
+					</sheet>
+					<footer>
+					</footer>
 				</form>
 			</field>
 		</record>
-		<menuitem id="menuitem_id" name="Archivo" action="archivo_nuevo" icon="Nuevo" groups="dbdofast_menu"></menuitem>
-		<menuitem id="" name="" action=""></menuitem></data>
+		<record id="dbdofast_action" model="ir.actions.act_window"> // registro nuevo dentro para acciones, modelo igual para todas acciones
+			<field name="name">dbdofast.action</field>  // 
+			<field name="model">dbdofast.model</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<!-- ============= MENU ==================== -->
+		<menuitem id="dbdofast_menu" name="DBDOFAST"></menuitem>
+		<menuitem id="dbdofast_submenu" name="Archivo" parent="dbdofast_menu" sequence="0" ></menuitem>
+		<menuitem id="dbdofast_submenu_action" name="Archivo" parent="dbdofast_submenu" action="dbdofast_action" icon="Nuevo" groups="dbdofast_menu" sequence="0" ></menuitem>
+	</data>
 </openerp>
