@@ -22,7 +22,7 @@ class clase_dbdofast(osv.osv):
                 'state' : fields.selection([('uno','Uno'),('dos','Dos')],'Estado'),   # campo por omision Odoo, estados seleccionables
                 }                                                           #-------------------------------------------
     _defaults = {                                                           #-------------------------------------------                                                           
-                 'fecha' : lamdba *a: time.strftime('%d-%m-%Y'),
+                 #'fecha' : lamdba *a: time.strftime('%d-%m-%Y'),
                  'state' : 'uno',                                            # diccionario de campos que contienen valores por defecto de los antes definidos
                  }                                                          #-------------------------------------------
     #_order = "id"
