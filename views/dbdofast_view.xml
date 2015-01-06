@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="view_student_form">
+			<field name="nombre">
+				student.det.student.view
+				</field>
+			<field name="model">student.det</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Destalles del Estudiante">
+					<field name="nombre" select="1"/>
+					<field name="fechadenacimiento" />
+				</form>
+			</field>
+		</record>
+		<menuitem id="menuitem_id" name="Archivo" action="archivo_nuevo" icon="Nuevo" groups="dbdofast_menu"></menuitem>
+		<menuitem id="" name="" action=""></menuitem></data>
+</openerp>
