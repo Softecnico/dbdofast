@@ -41,9 +41,18 @@
 			<field name="view_type">form</field>
 			<field name="view_mode">tree,form</field>
 		</record>
+		<record model="ir.actions.act_window" id="action_courses">
+            <field name="name">Courses</field>
+            <field name="res_model">openacademy.course</field>
+            <field name="view_mode">tree,form</field>
+        </record>
 		<!-- ============= MENU ==================== -->
 		<menuitem id="dbdofast_menu" name="DBDOFAST"></menuitem>
 		<menuitem id="dbdofast_submenu" name="Archivo" parent="dbdofast_menu" sequence="0" ></menuitem>
 		<menuitem id="dbdofast_submenu_action" name="Archivo" parent="dbdofast_submenu" action="dbdofast_action" icon="Nuevo" groups="dbdofast_menu" sequence="0" ></menuitem>
+		
+		<menuitem name="Open Academy" id="menu_root" sequence="110"/>
+        <menuitem name="General" id="menu_general" parent="menu_root"/>
+        <menuitem name="Courses" id="menu_courses" parent="menu_general" sequence="1" action="action_courses"/>
 	</data>
 </openerp>

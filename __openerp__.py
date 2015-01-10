@@ -10,6 +10,7 @@
     "name": "Pequeño Comercio",
     "version": "0.1",
     "category": "Generic Modules/Others",
+    'summary': 'Gestión de un comercio pequeño',
     "description": """
 Este modulo sirve para poder administrar un pequeño comercio
 =================================================================
@@ -22,15 +23,11 @@ para poder administrar rapidamente los datos básicos de un comercio pequeño
     "website": "https://www.sudano.net",
     "summary": "Ayuda a la pequeña empresa",
     "depends": ["base"],
-    "data": ["views/dbdofast_view.xml"],
+    "data": [],
     "init_xml" : [],
     "demo_xml" : [],
-    "update_xml" : [
-        "views/dbdofast_view.xml",
-        ],
     "active": False,
     "installable": True,
     "application": True,
     "auto_install": False
 }
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

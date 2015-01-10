@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="modelo_reparto">
+            <field name="name">modelo.reparto.tree</field>
+            <field name="model">modelo.reparto</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Listados">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</openerp>
