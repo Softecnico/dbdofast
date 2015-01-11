@@ -1,55 +1,51 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-
-# C extensions
-*.so
-
-# Distribution / packaging
 .Python
-env/
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-*.egg-info/
-.installed.cfg
-*.egg
-
-# PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
-
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
-
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.coverage
 .cache
-nosetests.xml
-coverage.xml
-
-# Translations
-*.mo
-*.pot
-
-# Django stuff:
-*.log
-
-# Sphinx documentation
-docs/_build/
-
+*.egg
+.installed.cfg
+*.egg-info/
 # PyBuilder
+# Django stuff:
+*.pot
+__pycache__/
+build/
+.gitignore
+coverage.xml
+# Translations
+sdist/
+eggs/
+.pydevproject
+# Distribution / packaging
+env/
 target/
-dbdofast.py
+downloads/
+pip-delete-this-directory.txt
+develop-eggs/
+.tox/
+*.mo
+*.manifest
+lib64/
+# Unit test / coverage reports
+var/
+htmlcov/
+*.spec
+# Sphinx documentation
+# C extensions
+*.log
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.py[cod]
+# Byte-compiled / optimized / DLL files
+docs/_build/
+.coverage
+pip-log.txt
+#  Usually these files are written by a python script from a template
+parts/
+nosetests.xml
+lib/
+# PyInstaller
+/otros
+*.so
+otros/dbdofast_view.xml
+dist/
+.project
+# Installer logs
+sftp-config.json
