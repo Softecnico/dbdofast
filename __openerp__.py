@@ -23,7 +23,7 @@ para poder administrar rapidamente los datos básicos de un comercio pequeño
     "website": "https://www.sudano.net",
     "summary": "Ayuda a la pequeña empresa",
     "depends": ["base"],
-    "data": [],
+    "data": ["views/dbdofast_tree.xml"],
     "init_xml" : [],
     "demo_xml" : [],
     "active": False,

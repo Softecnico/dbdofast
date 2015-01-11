@@ -1,15 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <record model="ir.ui.view" id="modelo_reparto">
-            <field name="name">modelo.reparto.tree</field>
+        <record id="modelo_reparto" model="ir.ui.view"> <!-- registro nuevo dentro para la vista, el modelo siempre es el mismo para vistas -->
+            <field name="name">modelo.reparto.tree</field> <!-- estes es el nombre de la vista en cuestión -->
             <field name="model">modelo.reparto</field>
             <field name="type">tree</field>
             <field name="arch" type="xml">
                 <tree string="Listados">
+                    <field name="id"/>
                     <field name="name"/>
+                    <field name="titulo"/>
                 </tree>
             </field>
         </record>
+
+        <menuitem name="Pequeño Comercio" id="menu_root" sequence="110"/>
+
+        <menuitem name="General" id="menu_general" parent="menu_root" sequence="10"/>
+
+        <record model="ir.actions.act_window" id="action_repartos">
+            <field name="name">Reparto</field>
+            <field name="res_model">modelo.reparto</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <menuitem name="Repartos" id="menu_repartos" parent="menu_general" sequence="1" action="action_repartos"/>
     </data>
 </openerp>
