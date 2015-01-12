@@ -39,11 +39,12 @@
         <menuitem name="Repartos" id="menu_repartos" parent="menu_general" sequence="1" action="action_repartos"/>
         
         
-        <record model="ir.actions.act_windows" id="action_empleados">
+        <record model="ir.actions.act_window" id="action_empleados">
         	<field name="name">Empleados</field>
-        	<field name="res_model">res.users</field>
+        	<field name="res_model">hr.employee</field>
         	<field name="view_mode">tree</field>
         </record>
+
         <menuitem name="Empleados" id="menu_empleados" parent="menu_general" sequence="2" action="action_empleados"/>
     </data>
 </openerp>
