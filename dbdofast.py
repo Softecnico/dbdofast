@@ -20,13 +20,13 @@ class modelo_reparto(osv.osv):
       'titulo' : fields.char('Titulo', size=30, help='Este es el titulo de la ventana', required=True, translate=True),
       'fecha' : fields.date('Fecha', readonly=True),                          # Campo de tipo fecha y de solo lectura
       'estado' : fields.selection([('uno','Uno'),('dos','Dos')],'Estado'),    # campo por omision Odoo, estados seleccionables
-      'active' : fields.boolean(True),                                        # Activa la el modelo para que sea visible
+      #'active' : fields.boolean(True),                                        # Activa la el modelo para que sea visible
     }                                                                         #-------------------------------------------
 
-    _defaults = {                                                             #-------------------------------------------                                                           
-                 'fecha' : lamdba *a: time.strftime('%d-%m-%Y'),              # diccionario de campos que contienen 
-                 'estado' : 'uno',                                            # valores por defecto de los antes definidos
-    }                                                                         #-------------------------------------------
+    # _defaults = {                                                             #-------------------------------------------                                                           
+    #              'fecha' : lamdba *a: time.strftime('%d-%m-%Y'),              # diccionario de campos que contienen 
+    #              'estado' : 'uno',                                            # valores por defecto de los antes definidos
+    # }                                                                         #-------------------------------------------
     
     #_order = "id"
     #_inherit =                                                               # nombre del objeto padre que el objeto actual hereda de
