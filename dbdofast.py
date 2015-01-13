@@ -5,23 +5,20 @@
 #    Licence: 
 #
 ##############################################################################
-from openerp.osv import osv, fields
+from openerp import models, fields
 #from datatime import time, datatime
 #from tools.translate import _
 #from openerp import tools
 
-class modelo_reparto(osv.osv):
+class modelo_reparto(models.Model):
     _name = 'modelo.reparto'                                                 # nombre de objeto (requerido)
     _description = 'Modulo de Gestion de Repartos'                           #
-
+    name = fields.Char('Nombre', size=30, help='Este es el Nombre', required=True, translate=True),
+    titulo = fields.Char('Titulo', size=30, help='Este es el titulo de la ventana', required=True, translate=True),
+    fecha = fields.Date('Fecha', readonly=True),                          # Campo de tipo fecha y de solo lectura
+    estado = fields.Selection([('uno','Uno'),('dos','Dos')],'Estado'),    # campo por omision Odoo, estados seleccionables
+    active = fields.Boolean("Active"),                                        # Activa la el modelo para que sea visible
     # diccionario de campos de objeto (requerido)
-    _columns = {                                                              #-------------------------------------------
-      'name' : fields.char('Nombre', size=30, help='Este es el Nombre', required=True, translate=True),
-      'titulo' : fields.char('Titulo', size=30, help='Este es el titulo de la ventana', required=True, translate=True),
-      'fecha' : fields.date('Fecha', readonly=True),                          # Campo de tipo fecha y de solo lectura
-      'estado' : fields.selection([('uno','Uno'),('dos','Dos')],'Estado'),    # campo por omision Odoo, estados seleccionables
-      #'active' : fields.boolean(True),                                        # Activa la el modelo para que sea visible
-    }                                                                         #-------------------------------------------
 
     # _defaults = {                                                             #-------------------------------------------                                                           
     #              'fecha' : lamdba *a: time.strftime('%d-%m-%Y'),              # diccionario de campos que contienen 
