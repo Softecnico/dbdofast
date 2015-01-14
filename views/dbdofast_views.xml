@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- Menu ROOT -->
+        <menuitem name="Pequeño Comercio" id="menu_root" sequence="110"/>
+
+        <!-- Menu General -->
+        <menuitem name="General" id="menu_general" parent="menu_root" sequence="10"/>
+
+        <!-- Vistas General -->
+        <record id="panel_control_tree" model="ir.ui.view">
+            <field name="name">modelo.reparto.panel.control.tree</field>
+            <field name="model">modelo.reparto</field>
+            <field name="arch" type="xml">
+                <tree string="Panel de Control">
+                    <field name="id"/>
+                    <!-- <field name="name"/> -->
+                    <field name="titulo"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="modelo_reparto_proveedores_tree" model="ir.ui.view">
+            <field name="name">modelo.reparto.proveedores.tree</field>
+            <field name="model">res.partner</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Listados de Proveedores">
+                    <field name="id"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="modelo_reparto_proveedores_form" model="ir.ui.view">
+            <field name="name">modelo.reparto.proveedores.form</field>
+            <field name="model">modelo.reparto</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Alta de Proveedores" version="8.0">
+                    <header>
+                        <button name="set_recruit" string="Launch Recruitment" states="open" type="object" class="oe_highlight" groups="base.group_user"/>
+                        <button name="set_open" string="Stop Recruitment" states="recruit" type="object" class="oe_highlight" groups="base.group_user"/>
+                        <!-- <field name="estado" widget="statusbar" statusbar_visible="recruit,open"/> -->
+                    </header>
+                    <sheet>
+                        <group> <!-- colspan/col -->
+                            <field name="titulo" />
+                            <field name="name" />
+                            <field name="fecha" />
+                            <field name="estado" />
+                        </group>
+                    </sheet>
+                    <footer>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+<!--         <record id="modelo_reparto_vista_busqueda" model="ir.ui.view">
+            <field name="name">Buscar Algo</field>
+            <field name="model">modelo.reparto</field>
+            <field name="arch" type="xml">
+                <search string="Employees">
+                    <field name="name" string="Employees" filter_domain="['|',('work_email','ilike',self),('name','ilike',self)]"/>
+                    <field name="department_id" />
+                    <field name="category_ids" groups="base.group_hr_user"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Manager" icon="terp-personal" domain="[]" context="{'group_by':'parent_id'}"/>
+                        <filter string="Coach" icon="terp-personal" domain="[]" context="{'group_by':'coach_id'}"/>
+                        <filter string="Department" icon="terp-personal+" domain="[]" context="{'group_by':'department_id'}"/>
+                        <filter string="Job" icon="terp-gtk-select-all" domain="[]" context="{'group_by':'job_id'}"/>
+                        <filter string="Company" icon="terp-go-home" domain="[]" context="{'group_by':'company_id'}" groups="base.group_multi_company"/>
+                    </group>
+                </search>
+             </field>
+         </record> -->
+
+        <!-- Acciones para General -->
+        <record model="ir.actions.act_window" id="action_panel_control">
+            <field name="name">Panel de Control</field>
+            <field name="res_model">modelo.reparto</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_proveedores_view">
+            <field name="name">Proveedores</field>
+            <field name="res_model">modelo.reparto</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="modelo_reparto_proveedores_tree"/>
+        </record>
+        
+        <record model="ir.actions.act_window" id="action_proveedores_edit">
+            <field name="name">Proveedores</field>
+            <field name="res_model">modelo.reparto</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="modelo_reparto_proveedores_form"/>
+        </record>
+        
+<!--         <record model="ir.actions.act_window" id="prueba_no_borrar">
+            <field name="name">Prueba de Accion</field>
+            <field name="res_model">modelo.reparto</field>
+            <field name="view_id" eval="False"/>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="search_view_id" ref="modelo_reparto_vista_busqueda"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Haga click para crear un Empleado.
+              </p><p>
+                Esta es la ayuda que saldrá al pasar
+                por encima del bóton o campo
+              </p>
+            </field>
+        </record> -->
+
+        <!-- Submenus de General -->
+        <menuitem name="Panel de Control" id="menu_panel_control" parent="menu_general" sequence="1" action="action_panel_control"/>
+
+        <menuitem name="Proveedores" id="menu_proveedores" parent="menu_general" sequence="2" action="action_proveedores_edit"/>
+
+        <!-- Menu Listados -->
+        <menuitem name="Listados" id="menu_listados" parent="menu_root" sequence="20"/>
+
+        <!-- Vistas Listados -->
+        <record id="repartos_tree" model="ir.ui.view">
+            <field name="name">modelo.reparto.repartos.tree</field>
+            <field name="model">modelo.reparto</field>
+            <field name="arch" type="xml">
+                <tree string="Listado de Repartos">
+                    <field name="id"/>
+                    <!-- <field name="name"/> -->
+                    <field name="titulo"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="repartidores_tree" model="ir.ui.view">
+            <field name="name">modelo.reparto.repartidores.tree</field>
+            <field name="model">modelo.reparto</field>
+            <field name="arch" type="xml">
+                <tree string="Listado de Repartidores">
+                    <field name="id"/>
+                    <field name="name"/>
+                    <!-- <field name="titulo"/> -->
+                </tree>
+            </field>
+        </record>
+
+        <!-- Acciones para Listados -->
+        <record model="ir.actions.act_window" id="action_list_repartos">
+            <field name="name">Repartos</field>
+            <field name="res_model">modelo.reparto</field>
+            <!-- <field name="view_mode">tree</field> -->
+            <field name="view_type">tree</field>
+            <field name="view_id" ref="repartos_tree"/>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_list_repartidores">
+            <field name="name">Repartidores</field>
+            <field name="res_model">modelo.reparto</field>
+            <field name="view_mode">tree</field>
+            <!-- <field name="view_type">tree</field> -->
+            <field name="view_id" ref="repartidores_tree"/>
+        </record>
+        
+        <record model="ir.actions.act_window" id="action_empleados">
+            <field name="name">Empleados</field>
+            <field name="res_model">hr.employee</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <!-- Submenus de Listados -->
+        <menuitem name="Repartos" id="menu_repartos" parent="menu_listados" sequence="1" action="action_list_repartos"/>
+        
+        <menuitem name="Repartidores" id="menu_repartidores" parent="menu_listados" sequence="2" action="action_list_repartidores"/>
+
+        <menuitem name="Empleados" id="menu_empleados" parent="menu_listados" sequence="3" action="action_empleados"/>
+    </data>
+</openerp>

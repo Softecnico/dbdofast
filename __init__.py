@@ -7,3 +7,5 @@
 ##############################################################################
 
 import dbdofast
+import realiza_reparto
+import repartidor_contrato

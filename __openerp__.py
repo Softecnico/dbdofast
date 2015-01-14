@@ -22,8 +22,11 @@ para poder administrar rapidamente los datos básicos de un comercio pequeño
     "author": "Softecnico S.A.",
     "website": "https://www.sudano.net",
     "summary": "Ayuda a la pequeña empresa",
-    "depends": ["base","hr","crm"],
-    "data": ["views/dbdofast_tree.xml","security/ir.model.access.csv"],
+    "depends": ["base","hr","crm","account_voucher"],
+    "data": [
+        "views/dbdofast_views.xml",
+        "security/ir.model.access.csv"
+        ],
     "init_xml" : [],
     "demo_xml" : [],
     "active": False,
