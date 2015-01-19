@@ -8,7 +8,7 @@
 
 {
     "name": "Pequeño Comercio",
-    "version": "0.1",
+    "version": "0.2",
     "category": "Generic Modules/Others",
     'summary': 'Gestión de un comercio pequeño',
     "description": """
@@ -24,7 +24,9 @@ para poder administrar rapidamente los datos básicos de un comercio pequeño
     "summary": "Ayuda a la pequeña empresa",
     "depends": ["base","hr","crm","account_voucher"],
     "data": [
-        "views/dbdofast_views.xml",
+        "views/menu_principal.xml",
+        "views/repartidores_views.xml",
+        "views/repartos_views.xml",
         "security/ir.model.access.csv"
         ],
     "init_xml" : [],

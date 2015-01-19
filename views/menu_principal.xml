@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- Menu ROOT -->
+        <menuitem name="Pequeño Comercio" id="menu_root" sequence="110"/>
+
+        <!-- Menu General -->
+        <menuitem name="General" id="menu_general" parent="menu_root" sequence="10"/>
+
+        <!-- Menu Listados -->
+        <menuitem name="Listados" id="menu_listados" parent="menu_root" sequence="20"/>
+
+        <!-- Acciones para Listados -->
+        <record model="ir.actions.act_window" id="action_list_clientes">
+            <field name="name">Clientes</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('customer','=',True)]</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_list_proveedores">
+            <field name="name">Proveedores</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('supplier','=',True)]</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_list_empleados">
+            <field name="name">Empleados</field>
+            <field name="res_model">hr.employee</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Submenus de Listados -->
+        <menuitem name="Clientes" id="menu_clientes" parent="menu_general" sequence="1" action="action_list_clientes"/>
+
+        <menuitem name="Proveedores" id="menu_proveedores" parent="menu_general" sequence="2" action="action_list_proveedores"/>
+        
+        <menuitem name="Empleados" id="menu_empleados" parent="menu_general" sequence="3" action="action_list_empleados"/>
+    </data>
+</openerp>

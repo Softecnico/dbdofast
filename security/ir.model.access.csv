@@ -1,2 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_modelo_reparto,modelo.reparto all,model_modelo_reparto,,1,1,1,1
+access_repartidor_contrato,repartidor.contrato all,model_repartidor_contrato,,1,1,1,1
+access_realiza_reparto,realiza.reparto all,model_realiza_reparto,,1,1,1,1

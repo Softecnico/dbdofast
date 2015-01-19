@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- Vista Repartidores -->
+        <record id="repartidor_contrato_repartidores_form" model="ir.ui.view">
+            <field name="name">repartidor.contrato.repartidores.form</field>
+            <field name="model">repartidor.contrato</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Repartidores" version="8.0">
+                    <header>
+                        <!-- <button name="boton1" string="Bóton 1" states="uno" type="object" class="oe_highlight"/>
+                        <button name="boton2" string="Bóton 2" states="dos" type="object" class="oe_highlight" groups="base.group_user"/>
+                        <field name="state" widget="statusbar" statusbar_visible="uno"/> -->
+                    </header>
+                    <sheet>
+                        <field name="image" widget="image" class="oe_left oe_avatar"/>
+                        <div class="oe_title">
+                            <h1><label for="name" class="oe_edit_only">Repartidor:</label></h1>
+                        </div>
+                        <group> <!-- colspan/col -->
+                            <field name="name"/>
+                            <field name="CIF_rep" />
+                            <field name="ID_contrato_repartidor" />
+                        </group>
+                    </sheet>
+                    <footer>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="repartidor_contrato_busqueda" model="ir.ui.view">
+            <field name="name">repartidor.contrato.busqueda</field>
+            <field name="model">repartidor.contrato</field>
+            <field name="arch" type="xml">
+                <search string="Repartidores">
+                    <field name="name" string="Repartidor:" filter_domain="['|',('name','ilike',self),('CIF_rep','ilike',self)]"/>
+                    <group expand="0" string="Agrupado por:">
+                        <filter string="ID" icon="terp-personal" domain="[]" context="{'group_by':'id'}"/>
+                        <filter string="Contrato Nº" icon="terp-personal" domain="[]" context="{'group_by':'ID_contrato_repartidor'}"/>
+                    </group>
+                </search>
+             </field>
+         </record>
+
+        <!-- Acciones Repartidores -->
+        <record model="ir.actions.act_window" id="action_edit_repartidores">
+            <field name="name">Repartidores</field>
+            <field name="res_model">repartidor.contrato</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <!-- <field name="view_id" ref="repartidor_contrato_repartidores_form"/> -->
+        </record>
+
+        <!-- Submenus de General -->
+        <menuitem name="Repartidores" id="menu_repartidores" parent="menu_general" sequence="5" action="action_edit_repartidores"/>
+
+
+<!--         <record model="ir.actions.act_window" id="prueba_no_borrar">
+            <field name="name">Prueba de Accion</field>
+            <field name="res_model">modelo.reparto</field>
+            <field name="view_id" eval="False"/>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="search_view_id" ref="modelo_reparto_vista_busqueda"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Haga click para crear un Empleado.
+              </p><p>
+                Esta es la ayuda que saldrá al pasar
+                por encima del bóton o campo
+              </p>
+            </field>
+        </record> -->
+    </data>
+</openerp>
