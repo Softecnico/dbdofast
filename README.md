@@ -1,6 +1,6 @@
 dbdofast
 ========
-version 1
+*version 1*
 
 Módulo para Odoo 8.0 que gestiona el día a día de un pequeño establecimiento _(Day By Day OF A Shop Tiny)_
 
@@ -24,3 +24,5 @@ Para instalar dbdofast basta con copiar la carpeta descargada (o el repositorio 
 * **Gestión de Empleados:** Permite gestionar los empleados, asi como los niveles de acceso a la propia interfaz
 * **Gestión de Repartidores:** Permite fácilmente gestionar los repartidores de la tienda, útil para panaderías o tiendas similares
 * **Gestión de Repartos:** Gestiona cada reparto, asignándolo a los repartidores que se encargarán de este 
+
+_Aviso: para crear proveedores y clientes importante seleccionar la opción deseada en el formulario_
